@@ -1,0 +1,22 @@
+[project]
+name = "agent-guidelines"
+version = "0.1.0"
+description = "MCP server and tooling for centralized agent guidelines written as skills"
+requires-python = ">=3.10"
+dependencies = [
+  "mcp>=1.27,<2",
+  "uvicorn>=0.30",
+  "pyyaml>=6.0",
+  "wcmatch>=10.0",
+]
+
+[project.scripts]
+agent-guidelines-server = "agent_guidelines.server:main"
+agent-guidelines-validate = "agent_guidelines.validate:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/agent_guidelines"]

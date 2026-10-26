@@ -1,0 +1,9 @@
+services:
+  agent-guidelines:
+    build: ./server
+    container_name: agent-guidelines-mcp
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3333:3333"   # localhost only: no auth
+    volumes:
+      - ./skills:/skills:ro      # edit skills on the host; the next request sees the change
